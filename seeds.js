@@ -2,9 +2,9 @@ const Pet = require("./models/pets");
 
 const mongoose = require("mongoose");
 const user = require("./models/user");
-
+const dbUrl = process.env.DB_URL|| "mongodb://localhost:27017/pets"
 mongoose
-  .connect("mongodb://localhost:27017/pets", {
+  .connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -962,20 +962,20 @@ async function main() {
 }
 
 
-async function seedOwners(){
-  const pets = await Pet.find({});
-  const owner = await user.findById('6423433bc51776e5e78b7ce5
-')
-  owner.pets.push(...pets)
-  await owner.save()
-}
+// async function seedOwners(){
+//   const pets = await Pet.find({});
+//   const owner = await user.findById('6423433bc51776e5e78b7ce5
+// ')
+//   owner.pets.push(...pets)
+//   await owner.save()
+// }
   // const animals = [...pets]
   // const owner = await user.findByIdAndUpdate('6423433bc51776e5e78b7ce5
-', {$push: {pets: [...pets]}}, {safe: true, upsert: true})
+// //
   // console.log(owner)
 
 //   const owner = await user.findById('6423433bc51776e5e78b7ce5
-')
+//')
 
 //     for(let pet of pets){
 //       owner.pets.push(pet)
@@ -991,7 +991,7 @@ async function seedOwners(){
 
 // async function deleteUser() {
 //   await user.findByIdAndDelete("6423433bc51776e5e78b7ce5
-");
+//");
 //   console.log("done");
 // }
 
