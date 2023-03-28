@@ -1,0 +1,85 @@
+<% layout('layouts/boilerplate')%>
+
+  <section class="py-5 text-center container-fluid bg-light">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Pet Depot</h1>
+        <p class="lead text-muted">Find your new best friend today. Browse pets from our extensive network </p>
+        <p>
+          <a href="/pets/category/cats" class="btn btn-primary my-2">Cats 🐈</a>
+          <a href="/pets/category/dogs" class="btn btn-primary my-2">Dogs 🦮</a>
+          
+          <button id = "options" type="button" class="btn btn-primary ">Other Pets 🐎</button>
+    </div>
+      <div id ="menu" class="hide">
+        <div class="exit">
+          <button type="button" id="exit" class="btn-close" aria-label="Close"></button>
+        </div>
+        <ul>
+          <li> <a   href="/pets/category/horses and ponies">horses and ponies</a></li>
+          <li><a  href="/pets/category/reptiles">reptiles</a></li>
+          <li>  <a  href="/pets/category/birds">birds</a></li>
+          <li >  <a  href="/pets/category/amphibians">amphibians</a></li>
+          <li >  <a  href="/pets/category/small furries">small furries</a></li>
+          <li > <a  href="/pets/category/rabbits">rabbits</a></li>
+          
+        </ul>
+        
+      </div>
+    </div>
+    
+  </section>
+  <div id="clusterMap"></div>
+  <div class="container text-center mt-3">
+    <h2>Available Pets</h2>
+    <div class="row mt-3">
+    <% for (let pet of pets) {%>
+        <div class="col-sm-4">
+        <div class="card mb-3" >
+            <img src="<%=pet.images[0].url%>" class="card-img-top" style="width: 100%; height: 30vh; object-fit: cover" alt="..." crossorigin="anonymous">
+            <div class="card-body">
+              <h5 class="card-title"><%=pet.species%></h5>
+              <p class="card-text"><%=pet.city%>, <%=pet.state%></p>
+              <p class="card-text">$<%=pet.price%></p>
+              <a href="/pets/category/<%=pet.category%>"><p class="card-text">#<%=pet.category%></p></a>
+              <a href="/pets/<%=pet._id%>" class="btn btn-primary mt-1">See details</a>
+              <form class="d-inline" action="/pets/<%=pet._id%>/favorite" method="POST">
+                <% if(currentUser && currentUser.favorites.includes(pet._id)){ %>
+                  <button class="btn btn-transparent fav mt-1">❤️</button>
+                  <% }else{%>
+                    <button class="btn btn-transparent fav mt-1">♡</button>
+                 <% } %>
+
+                 
+                
+              </form>
+              
+            </div>
+          </div>
+          </div>
+
+
+
+
+
+    <% } %>
+    
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+<script>
+  const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+  const pets = { features: <%- JSON.stringify(pets) %>}
+</script>    
+<script src="/javascripts/clusterMap.js"></script>
+

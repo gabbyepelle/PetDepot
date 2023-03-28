@@ -1,0 +1,50 @@
+.hide {
+  display: none;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style: none;
+  text-align: center;
+}
+
+.show {
+  display: block;
+}
+
+li:hover {
+  font-weight: bold;
+}
+
+#exit {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: inherit;
+}
+
+.exit {
+  float: right;
+}
+.email{
+  color: blue;
+}
+.email:hover{
+  border-bottom: 1px solid;
+}
+
+#clusterMap{
+  width: 100%; 
+  height: 500px;
+}
+
+#map{
+  width: auto; 
+  height: 300px;
+}
+a p{
+  color:blue;
+}

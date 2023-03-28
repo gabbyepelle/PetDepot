@@ -1,0 +1,98 @@
+<% layout('layouts/boilerplate')%>
+<!-- <script src="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js"></script>
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css"
+  rel="stylesheet"
+/> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="card mt-3" style="width: 40rem">
+        <div id="petCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <% pet.images.forEach((img, i) => { %>
+            <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+              <img src="<%= img.url%>" class="d-block w-100" alt="" crossorigin="anonymous"/>
+            </div>
+            <% }) %>
+          </div>
+          <% if(pet.images.length > 1) {%>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#petCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#petCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <% } %>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%=pet.breed%></h5>
+          <p class="card-text">Date added: <%=pet.dateFormatted%></p>
+          <p class="card-text">Age: <%=pet.age%></p>
+          <p class="card-text">Sex: <%=pet.sex%></p>
+          <p class="card-text">Price: $<%=pet.price%></p>
+          <p class="card-text"><%=pet.description%></p>
+          <a href="/pets/category/<%=pet.category%>"
+            ><p class="card-text cat">#<%=pet.category%></p></a
+          >
+
+          <% if( currentUser && pet.author.equals(currentUser._id)){%>
+          <div class="text-center">
+            <a href="/pets/<%=pet._id%>/edit" class="btn btn-warning">Edit</a>
+            <form
+              class="d-inline"
+              action="/pets/<%=pet._id%>?_method=DELETE"
+              method="POST"
+            >
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+          <%}else{%>
+          <div class="text-center mb-3">
+            <form class="d-inline" action="/pets/<%=pet._id%>/favorite" method="POST">
+              <% if(currentUser.favorites.includes(pet._id)){ %>
+                <button class="btn btn-transparent fav mt-1">❤️</button>
+                <% }else{%>
+                  <button class="btn btn-transparent fav mt-1">♡</button>
+               <% } %>  
+            </form>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <a href="/pets" class="btn btn-primary my-3">Back Home</a>
+    </div>
+
+    <div class="col-6 mt-3">
+      <div class="card">
+      <div id='map'></div>
+      <div class="card-body">
+        <h5 class="card-title">Seller Info</h5>
+        <p class="card-text">Location: <%=pet.city%>, <%=pet.state%></p>
+        <p class="card-text">Seller: <%=pet.author.username%></p>
+        <p class="card-text">Email: <a class="email" href = "mailto: <%=pet.author.email%>"><%=pet.author.email%></a></p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+<script>
+  const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+  const pet = <%- JSON.stringify(pet) %>
+</script>
+
+<script src="/javascripts/showPageMap.js"></script>

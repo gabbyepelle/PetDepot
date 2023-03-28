@@ -1,0 +1,72 @@
+<% layout('layouts/boilerplate')%>
+
+
+<div class="container text-center mt-3">
+    <h2>My Favorites</h2>
+    <div class="row mt-3">
+    <% for (let pet of user.favorites) {%>
+      <div class="col-sm-4">
+        <div class="card mb-3" >
+            <img src="<%=pet.images[0].url%>" class="card-img-top" style="width: 100%; height: 30vh; object-fit: cover" alt="..." crossorigin="anonymous">
+            <div class="card-body">
+              <h5 class="card-title"><%=pet.species%></h5>
+              <p class="card-text"><%=pet.city%>, <%=pet.state%></p>
+              <p class="card-text">$<%=pet.price%></p>
+              <a href="/pets/category/<%=pet.category%>"><p class="card-text">#<%=pet.category%></p></a>
+              <a href="/pets/<%=pet._id%>" class="btn btn-primary mt-1">See details</a>
+              <form
+              class="d-inline"
+              action="/pets/<%=pet._id%>/favorite"
+              method="POST"
+            >
+              <button class="btn btn-primary mt-1">Remove</button>
+            </form>
+              
+            </div>
+          </div>
+          </div>
+    <% } %>
+    </div>
+  <div class="text-center">
+  <h2>My Pets</h2>
+    <div class="row mt-3">
+  <% for(let pet of user.pets){%>
+    
+    <div class="col-sm-4">
+      <div class="card mb-3" >
+          <img src="<%=pet.images[0].url%>" class="card-img-top" style="width: 100%; height: 30vh; object-fit: cover" alt="..." crossorigin="annonymous">
+          <div class="card-body">
+            <h5 class="card-title"><%=pet.species%></h5>
+            <p class="card-text"><%=pet.city%>, <%=pet.state%></p>
+            <p class="card-text">$<%=pet.price%></p>
+            <a href="/pets/category/<%=pet.category%>"><p class="card-text">#<%=pet.category%></p></a>
+            <a href="/pets/<%=pet._id%>" class="btn btn-primary mt-1">See details</a>
+            <form
+              class="d-inline"
+              action="/pets/<%=pet._id%>?_method=DELETE"
+              method="POST"
+            >
+              <button class="btn btn-danger mt-1">Delete</button>
+            </form>
+            
+          </div>
+        </div>
+        </div>
+
+ <% }  %>
+</div>
+</div>
+
+<div class="mt-3 text-center">
+  <a href="/pets" class="btn btn-primary">Back Home</a>
+</div>
+</div>
+
+
+
+
+
+
+    
+  </body>
+</html>

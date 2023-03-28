@@ -1,0 +1,100 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="container mt-3">
+  <h1>Edit Pet</h1>
+  <form action="/pets/<%=pet._id%>?_method=PUT" method="POST" class="mb-3 needs-validation"  enctype="multipart/form-data" novalidate>
+    <div class="mb-3">
+      <label for="breed" class="form-label">Breed</label>
+      <input
+        type="text"
+        name="breed"
+        id="breed"
+        class="form-control"
+        value="<%=pet.breed%>"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input type="text" name="city" id="city" class="form-control" value =
+      "<%=pet.city%>" required />
+    </div>
+    <div class="mb-3">
+      <label for="state" class="form-label">State</label>
+      <input
+        type="text"
+        name="state"
+        id="state"
+        class="form-control"
+        value="<%=pet.state%>"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input
+        type="text"
+        name="price"
+        id="price"
+        class="form-control"
+        value="<%=pet.price%>"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input type="text" name="age" id="age" class="form-control" value =
+      "<%=pet.age%>" required />
+    </div>
+    <div class="mb-3">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="image">Add Images</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          name="image"
+          multiple
+        />
+      </div>
+    <div class="mb-3">
+      <select class="form-select" name="sex" required>
+        <option value="">Sex</option>
+       <% for(let sex of sexes){%>
+        <option value="<%=sex%>"<%=pet.sex===sex ? 'selected' : ''  %> ><%=sex%></option>
+        <% } %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <select class="form-select" name="category" required>
+        <option value="">Category</option>
+        <% for(let category of categories){%>
+          <option value="<%=category%>"<%=pet.category===category ? 'selected' : ''  %> ><%=category%></option>
+          <% } %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-control">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        cols="30"
+        rows="10"
+        class="form-control"
+        required
+      >
+<%=pet.description%></textarea
+      >
+    </div>
+    <div class="mb-3">
+      <% pet.images.forEach(function(img, i){%>
+        <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="">
+        <div class="form-check-inline">
+          <input type="checkbox" id="img-<%=i%>" name="deleteImages[]" value="<%=img.filename%>">
+          <label for="img-<%=i%>">Delete?</label>
+        </div>
+     <% }) %>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,90 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="container mt-3">
+  <h1>Add A Pet</h1>
+  <form
+    action="/pets"
+    method="POST"
+    class="mb-3 needs-validation"
+    novalidate
+    enctype="multipart/form-data"
+  >
+    <div class="mb-3">
+      <label for="breed" class="form-label">Breed</label>
+      <input
+        type="text"
+        name="breed"
+        id="breed"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="city" class="form-label">City</label>
+      <input type="text" name="city" id="city" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label for="state" class="form-label">State</label>
+      <input
+        type="text"
+        name="state"
+        id="state"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input
+        type="text"
+        name="price"
+        id="price"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input type="text" name="age" id="age" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="image">Image Url</label>
+        <input
+          type="file"
+          class="form-control"
+          id="image"
+          name="image"
+          multiple
+        />
+      </div>
+    <div class="mb-3">
+      <select class="form-select" name="sex" required>
+        <option value="">Sex</option>
+        <% for(let sex of sexes) { %>
+        <option value="<%=sex%>"><%=sex%></option>
+        <% } %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <select class="form-select" name="category" required>
+        <option value="">Category</option>
+        <% for (let category of categories){ %>
+        <option value="<%=category%>"><%=category%>s</option>
+        <% } %>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-control">Description</label>
+      <textarea
+        name="description"
+        id="description"
+        cols="30"
+        rows="10"
+        class="form-control"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
