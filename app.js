@@ -153,6 +153,10 @@ app.all("*", (req, res, next) => {
   next(new AppError("Page Not Found", 404));
 });
 
+app.get("/", (req, res) => {
+  res.render("home");
+});
+
 app.use((err, req, res, next) => {
   const { statusCode = 500 } = err;
   if (!err.message) err.message = "Oh No, Something Went Wrong";
