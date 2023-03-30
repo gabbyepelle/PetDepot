@@ -37,10 +37,6 @@ router.get("/category/:category", catchAsync(pets.showCategories));
 
 router.get("/:id/edit", isLoggedIn, isAuthor, catchAsync(pets.renderEditForm));
 
-// router
-//   .route("/author/:authorId")
-//   .get(isLoggedIn, catchAsync(pets.renderContactForm))
-//   .post(isLoggedIn, pets.emailAuthor);
 
 router
   .route("/:id/favorite")

@@ -2,7 +2,8 @@ const Pet = require("./models/pets");
 
 const mongoose = require("mongoose");
 const user = require("./models/user");
-const dbUrl = process.env.DB_URL|| "mongodb://localhost:27017/pets"
+const dbUrl = process.env.DB_URL
+
 mongoose
   .connect(dbUrl, {
     useNewUrlParser: true,
@@ -11,7 +12,7 @@ mongoose
   .then(() => {
     console.log("mongo connection open");
   })
-  .catch(() => {
+  .catch((err) => {
     console.log("OH NO MONGO CONNECTION ERROR");
     console.log(err);
   });
@@ -37,7 +38,7 @@ const seedPets = [
     },
     category: "birds",
     sex: "male",
-    author: '6424694701798d1593508dc0',
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -60,7 +61,7 @@ const seedPets = [
     },
     category: "birds",
     sex: "female",
-    author: '6424694701798d1593508dc0',
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -83,7 +84,7 @@ const seedPets = [
     },
     category: "small furries",
     sex: "male",
-    author: '6424694701798d1593508dc0',
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -111,7 +112,7 @@ const seedPets = [
     },
     category: "dogs",
     sex: "male",
-    author: '6424694701798d1593508dc0',
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -134,7 +135,7 @@ const seedPets = [
     },
     category: "dogs",
     sex: "male",
-    author: '6424694701798d1593508dc0',
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -161,7 +162,7 @@ const seedPets = [
     },
     category: "cats",
     sex: "mixed litter",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -184,7 +185,7 @@ const seedPets = [
     },
     category: "cats",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -207,7 +208,7 @@ const seedPets = [
     },
     category: "reptiles",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -230,7 +231,7 @@ const seedPets = [
     },
     category: "amphibians",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -253,7 +254,7 @@ const seedPets = [
     },
     category: "livestock",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -277,7 +278,7 @@ const seedPets = [
     },
     category: "horses and ponies",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -300,7 +301,7 @@ const seedPets = [
     },
     category: "birds",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -323,7 +324,7 @@ const seedPets = [
     },
     category: "small furries",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -346,7 +347,7 @@ const seedPets = [
     },
     category: "horses and ponies",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -369,7 +370,7 @@ const seedPets = [
     },
     category: "dogs",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   //
@@ -398,7 +399,7 @@ const seedPets = [
     },
     category: "dogs",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -421,7 +422,7 @@ const seedPets = [
     },
     category: "dogs",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -448,7 +449,7 @@ const seedPets = [
     },
     category: "cats",
     sex: "mixed litter",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -471,7 +472,7 @@ const seedPets = [
     },
     category: "cats",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -494,7 +495,7 @@ const seedPets = [
     },
     category: "reptiles",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -517,7 +518,7 @@ const seedPets = [
     },
     category: "amphibians",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -540,7 +541,7 @@ const seedPets = [
     },
     category: "livestock",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -564,7 +565,7 @@ const seedPets = [
     },
     category: "horses and ponies",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -587,7 +588,7 @@ const seedPets = [
     },
     category: "birds",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -610,7 +611,7 @@ const seedPets = [
     },
     category: "small furries",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -633,7 +634,7 @@ const seedPets = [
     },
     category: "horses and ponies",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -656,7 +657,7 @@ const seedPets = [
     },
     category: "dogs",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   //
@@ -680,7 +681,7 @@ const seedPets = [
     },
     category: "birds",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -703,7 +704,7 @@ const seedPets = [
     },
     category: "birds",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -731,7 +732,7 @@ const seedPets = [
     },
     category: "dogs",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -754,7 +755,7 @@ const seedPets = [
     },
     category: "dogs",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -781,7 +782,7 @@ const seedPets = [
     },
     category: "cats",
     sex: "mixed litter",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -804,7 +805,7 @@ const seedPets = [
     },
     category: "cats",
     sex: "male",
-    author: "6424694701798d1593508dc0s",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -827,7 +828,7 @@ const seedPets = [
     },
     category: "reptiles",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -850,7 +851,7 @@ const seedPets = [
     },
     category: "amphibians",
     sex: "male",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -873,7 +874,7 @@ const seedPets = [
     },
     category: "livestock",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -897,7 +898,7 @@ const seedPets = [
     },
     category: "horses and ponies",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -920,7 +921,7 @@ const seedPets = [
     },
     category: "birds",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   {
@@ -943,7 +944,7 @@ const seedPets = [
     },
     category: "small furries",
     sex: "female",
-    author: "6424694701798d1593508dc0",
+    author: "64248a082c6e727decad85eb",
     date: new Date(),
   },
   
@@ -951,7 +952,8 @@ const seedPets = [
 ];
 
 async function main() {
-  await Pet.deleteMany({});
+  // await Pet.deleteMany({});
+  const owner = await user.findById('64248a082c6e727decad85eb')
   Pet.insertMany(seedPets)
     .then((res) => {
       console.log(res);
@@ -962,20 +964,20 @@ async function main() {
 }
 
 
-async function seedOwners(){
+async function seedOwnerss(){
   const pets = await Pet.find({});
-  const owner = await user.findById('6424694701798d1593508dc0')
+  const owner = await user.findById("64248a082c6e727decad85eb")
   owner.pets.push(...pets)
   await owner.save()
 }
   
 main();
-seedOwners()
+seedOwnerss();
 
 
 
 // async function deleteUser() {
-//   await user.findByIdAndDelete("6424694701798d1593508dc0
+//   await user.findByIdAndDelete(""64248a082c6e727decad85eb"
 //");
 //   console.log("done");
 // }

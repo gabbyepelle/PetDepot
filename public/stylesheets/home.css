@@ -1,0 +1,23 @@
+
+body{
+    background-image: url("../images/t-r-photography-TzjMd7i5WQI-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.welcome{
+    font-size: 40px;
+    color: white;
+}
+
+.description{
+    font-size: 35px;
+    color:white;
+   
+}
+
+.btn{
+    margin-left: 4px;
+}
+
+ 

@@ -92,7 +92,7 @@ app.use(
               "blob:",
               "data:",
               "https://res.cloudinary.com/djjiwoioz/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
-              "https://images.unsplash.com/"
+              "https://images.unsplash.com/",
           ],
           fontSrc    : [ "'self'", ...fontSrcUrls ],
           mediaSrc   : [ "https://res.cloudinary.com/djjiwoioz/" ],
@@ -149,13 +149,15 @@ app.use((req, res, next) => {
 app.use("/pets", petRoutes);
 app.use("/", userRoutes);
 
+app.get("/", (req, res) => {
+  res.render("home");
+});
+
 app.all("*", (req, res, next) => {
   next(new AppError("Page Not Found", 404));
 });
 
-app.get("/", (req, res) => {
-  res.render("home");
-});
+
 
 app.use((err, req, res, next) => {
   const { statusCode = 500 } = err;
