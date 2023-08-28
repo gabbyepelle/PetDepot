@@ -2,18 +2,18 @@
 body{
     background-image: url("../images/t-r-photography-TzjMd7i5WQI-unsplash.jpg");
     background-size: cover;
-    /* background-position: center;
-    background-repeat: no-repeat; */
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    
 }
 
 .welcome{
     font-size: 40px;
-    color: white;
 }
 
 .description{
     font-size: 35px;
-    color:white;
    
 }
 
