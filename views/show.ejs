@@ -63,7 +63,7 @@
           <%}else{%>
           <div class="text-center mb-3">
             <form class="d-inline" action="/pets/<%=pet._id%>/favorite" method="POST">
-              <% if(currentUser.favorites.includes(pet._id)){ %>
+              <% if(currentUser && currentUser.favorites.includes(pet._id)){ %>
                 <button class="btn btn-transparent fav mt-1">❤️</button>
                 <% }else{%>
                   <button class="btn btn-transparent fav mt-1">♡</button>
